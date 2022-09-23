@@ -1,5 +1,5 @@
-import React from "react";
-import { FlatList } from "react-native";
+import React, { useState } from "react";
+import { FlatList, Button } from "react-native";
 import { v4 as uuidv4 } from "uuid";
 import ImageDetail from "../components/ImageDetail";
 
@@ -23,12 +23,15 @@ const images = [
 ];
 
 const ImageScreen = () => {
+  const [counter, setCounter] = useState(1);
+
   return (
-    <FlatList
-      keyExtractor={() => uuidv4()}
-      data={images}
-      renderItem={({ item }) => {
-        return <ImageDetail name={item.name} image={item.image} />;
+    <Button
+      title="increase"
+      onPress={() => {
+        console.log(setCounter(counter + 1));
+        console.log(counter);
+        return setCounter(counter + 1);
       }}
     />
   );

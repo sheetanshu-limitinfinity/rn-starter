@@ -2,9 +2,8 @@ import React from "react";
 import { View, Image, Text, StyleSheet } from "react-native";
 
 const ImageDetail = ({ name, image }) => {
-  console.log(image);
   return (
-    <View>
+    <View style="cardDiv">
       <Image style={imageDiv} source={image} />
       <Text>Hello {name}</Text>
     </View>
@@ -12,18 +11,22 @@ const ImageDetail = ({ name, image }) => {
 };
 
 const styles = StyleSheet.create({
-  viewDiv: {
+  cardDiv: {
     flex: 1,
-    flexDirection: "row",
-    maxWidth: "100%",
-    justifyContent: "center",
-    alignItems: "center",
+    flexDirection: "column-reverse",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+    height: "100%",
   },
   imageDiv: {
     width: "100%",
+    height: "100%",
+    resizeMode: "contain",
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
   },
 });
 
-const { imageDiv } = styles;
+const { imageDiv, cardDiv } = styles;
 
 export default ImageDetail;
